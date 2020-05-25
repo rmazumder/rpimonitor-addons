@@ -19,6 +19,7 @@ This will take a backup of original addons.html and copy this addons.html to the
 >http://:8888/addons.html
 
 > To edit server, you need to manually update the addons.html 
+
 ```$scope.servers = ["192.168.1.17","192.168.1.27","192.168.1.36"]```
 
 >**Issue:** Since it connects to other raspberry pi , browser will not allow because of COORS. Need to disable COORS in browser to access the data.
