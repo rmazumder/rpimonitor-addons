@@ -23,5 +23,25 @@ This will take a backup of original addons.html and copy this addons.html to the
 ```$scope.servers = ["192.168.1.17","192.168.1.27","192.168.1.36"]```
 
 >**Issue:** Since it connects to other raspberry pi , browser will not allow because of COORS. Need to disable COORS in browser to access the data.
+Workaround for CORS:
+``` edit the file and change the sub SendJSON in all your servers sudo nano /usr/bin/rpimonitord to add headers to allow CORS
+
+sub SendJSON
+{
+  my $this = shift;
+  my $message =shift;
+
+  my $response = HTTP::Response->new(
+      RC_OK, OK => [ 'Content-Type' => "application/json" , 'Access-Control-Allow-Origin' => "*" ], $message
+  );
+  $this->{'connection'}->send_response($response);
+  $this->{'connection'}->close();
+
+  return 1;
+}
+
+```
+
+
 
 ![Screeshot](screenshot.png)
