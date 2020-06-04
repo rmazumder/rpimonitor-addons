@@ -27,6 +27,8 @@ This will take a backup of original addons.html and copy this addons.html to the
 Workaround for CORS:
 <br />
 edit the file and change the sub SendJSON in all your servers sudo nano /usr/bin/rpimonitord to add headers to allow CORS
+<br />
+
 ```
 sub SendJSON
 {
@@ -43,7 +45,6 @@ sub SendJSON
 }
 
 ```
-
 
 
 ![Screeshot](screenshot.png)
